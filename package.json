@@ -5,6 +5,7 @@
   "type": "module",
   "description": "Privacy-centric journal insight extraction and visualization pipeline",
   "scripts": {
+    "rename-2024": "tsx scripts/rename-2024-entries.ts",
     "preprocess": "tsx scripts/preprocess.ts",
     "upload": "tsx scripts/upload-to-r2.ts",
     "export": "tsx scripts/export-data.ts",

@@ -31,5 +31,5 @@ reports/output/
 # Preprocessed journals (contains personal data)
 preprocessed/
 
-# Raw journals (contains personal data)
-Journal/
+# Note: Journal/ contains example entries and is tracked
+# Real journals with personal data should be added locally
