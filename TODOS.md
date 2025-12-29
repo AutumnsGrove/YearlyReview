@@ -2,21 +2,40 @@
 
 > Last updated: 2025-12-29
 
-## Phase 0: Preprocessing (Local)
+---
 
-- [ ] Implement `scripts/preprocess.ts`:
-  - [ ] Scan Journal/2024/ and Journal/2025/ directories
-  - [ ] Strip Meta Bind button blocks (```meta-bind-button ... ```)
-  - [ ] Normalize internal links ([[Folder/Person]] → [[Person]])
-  - [ ] Extract date from filename (YYYY-MM-DD.md)
-  - [ ] Validate frontmatter dates match filename
-  - [ ] Flag entries missing dates for manual review
-  - [ ] Generate manifest.json with entry metadata
+## ⏳ NEXT STEPS FOR AGENT
 
-- [ ] Implement `scripts/upload-to-r2.ts`:
-  - [ ] Load R2 credentials from secrets.json
-  - [ ] Upload preprocessed entries to reflections-journals bucket
-  - [ ] Upload manifest.json
+**Current Status:** Phase 0 scripts are implemented and tested. Waiting for user to add journal entries.
+
+**Before Phase 1:**
+1. User needs to copy journal entries to `Journal/2024/` and `Journal/2025/`
+2. Run `pnpm preprocess` to process journals and generate manifest
+3. Set up `secrets.json` with Cloudflare R2 credentials (copy from `secrets_template.json`)
+4. Run `pnpm upload` to upload preprocessed entries to R2
+
+**Then proceed to Phase 1:** Set up Cloudflare infrastructure (R2 buckets, D1 database, queues)
+
+---
+
+## Phase 0: Preprocessing (Local) ✅ COMPLETE
+
+- [x] Implement `scripts/preprocess.ts`:
+  - [x] Scan Journal/2024/ and Journal/2025/ directories
+  - [x] Strip Meta Bind button blocks (```meta-bind-button ... ```)
+  - [x] Normalize internal links ([[Folder/Person]] → [[Person]])
+  - [x] Extract date from filename (YYYY-MM-DD.md)
+  - [x] Validate frontmatter dates match filename
+  - [x] Flag entries missing dates for manual review
+  - [x] Generate manifest.json with entry metadata
+  - [x] Output cleaned entries to `preprocessed/` directory
+
+- [x] Implement `scripts/upload-to-r2.ts`:
+  - [x] Load R2 credentials from secrets.json
+  - [x] Upload preprocessed entries to reflections-journals bucket
+  - [x] Upload manifest.json
+  - [x] Skip unchanged files (content hash comparison)
+  - [x] Progress reporting
 
 ## Phase 1: Infrastructure Setup
 
@@ -121,3 +140,7 @@
 - [x] Create dashboard routes and components
 - [x] Create reports/ directory structure
 - [x] Update AGENT.md with project details
+- [x] **Phase 0: Implement preprocess.ts** (2025-12-29)
+- [x] **Phase 0: Implement upload-to-r2.ts** (2025-12-29)
+- [x] Add @aws-sdk/client-s3 dependency for R2 uploads
+- [x] Update .gitignore for preprocessed/ and Journal/ directories
