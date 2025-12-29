@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reflections: A Technical Analysis of Two Years</title>
+  <style>
+    :root {
+      --color-primary: #a855f7;
+      --color-secondary: #f97316;
+      --color-text: #1f2937;
+      --color-muted: #6b7280;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      font-size: 12pt;
+      line-height: 1.6;
+      color: var(--color-text);
+      max-width: 8.5in;
+      margin: 0 auto;
+      padding: 1in;
+    }
+
+    h1 {
+      font-size: 24pt;
+      text-align: center;
+      margin-bottom: 0.5em;
+      background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    h2 {
+      font-size: 16pt;
+      color: var(--color-primary);
+      margin-top: 1.5em;
+      margin-bottom: 0.5em;
+      border-bottom: 2px solid var(--color-primary);
+      padding-bottom: 0.25em;
+    }
+
+    h3 {
+      font-size: 13pt;
+      margin-top: 1em;
+      margin-bottom: 0.5em;
+    }
+
+    p {
+      margin-bottom: 1em;
+      text-align: justify;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: var(--color-muted);
+      font-style: italic;
+      margin-bottom: 2em;
+    }
+
+    .toc {
+      margin: 2em 0;
+      padding: 1em;
+      background: #f9fafb;
+      border-radius: 8px;
+    }
+
+    .toc ul {
+      list-style: none;
+      padding-left: 1em;
+    }
+
+    .toc li {
+      margin: 0.5em 0;
+    }
+
+    .milestone {
+      display: flex;
+      gap: 1em;
+      padding: 0.5em 0;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .milestone-date {
+      font-weight: bold;
+      min-width: 100px;
+    }
+
+    .chart-placeholder {
+      height: 200px;
+      background: #f3f4f6;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-muted);
+      margin: 1em 0;
+    }
+
+    @media print {
+      body {
+        padding: 0;
+      }
+
+      h2 {
+        page-break-after: avoid;
+      }
+
+      .page-break {
+        page-break-before: always;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Reflections</h1>
+  <p class="subtitle">A Technical Analysis of Two Years (2024-2025)</p>
+
+  <div class="toc">
+    <h3>Table of Contents</h3>
+    <ul>
+      <li>1. Executive Summary</li>
+      <li>2. Methodology</li>
+      <li>3. Timeline of Major Events</li>
+      <li>4. Quantitative Analysis</li>
+      <li>5. Qualitative Analysis</li>
+      <li>6. Pattern Discovery</li>
+      <li>7. Key Findings</li>
+      <li>8. Recommendations for 2026</li>
+      <li>9. Appendix: Quarterly Summaries</li>
+    </ul>
+  </div>
+
+  <h2>1. Executive Summary</h2>
+  <p>{{executive_summary}}</p>
+
+  <h2 class="page-break">2. Methodology</h2>
+  <p>
+    This analysis was conducted using a privacy-centric journal insight extraction pipeline.
+    Approximately 650 journal entries from 2024-2025 were processed through DeepSeek v3.2
+    via OpenRouter's Zero Data Retention mode, extracting structured data about mood, energy,
+    relationships, health, and themes.
+  </p>
+  <p>
+    The extraction was followed by four tiers of aggregation: weekly summaries, monthly
+    summaries, quarterly "notepads," and a final two-year synthesis. This hierarchical
+    approach enables both granular and high-level pattern discovery.
+  </p>
+
+  <h2 class="page-break">3. Timeline of Major Events</h2>
+  <div id="milestones">
+    <!-- TODO: Populate milestones from synthesis data -->
+    <div class="milestone">
+      <span class="milestone-date">Aug 15, 2024</span>
+      <span>Started HRT</span>
+    </div>
+    <div class="milestone">
+      <span class="milestone-date">Jan 1, 2025</span>
+      <span>Started going by "Autumn"</span>
+    </div>
+  </div>
+
+  <h2 class="page-break">4. Quantitative Analysis</h2>
+
+  <h3>4.1 Mood & Energy Trends</h3>
+  <div class="chart-placeholder">[Mood/Energy Chart]</div>
+
+  <h3>4.2 Sleep Patterns</h3>
+  <p>{{sleep_pattern_summary}}</p>
+
+  <h3>4.3 Social Engagement Metrics</h3>
+  <div class="chart-placeholder">[Social Engagement Chart]</div>
+
+  <h2 class="page-break">5. Qualitative Analysis</h2>
+
+  <h3>5.1 Identity & Transition Journey</h3>
+  <p><strong>Pre-Autumn (2024):</strong> {{pre_autumn_summary}}</p>
+  <p><strong>Post-Autumn (2025):</strong> {{post_autumn_summary}}</p>
+  <p><strong>Transition Narrative:</strong> {{transition_narrative}}</p>
+
+  <h3>5.2 Relationship Dynamics</h3>
+  <p>{{relationship_summary}}</p>
+
+  <h3>5.3 Family Narrative</h3>
+  <p>{{family_journey}}</p>
+
+  <h2 class="page-break">6. Pattern Discovery</h2>
+
+  <h3>6.1 Weekly Cycles</h3>
+  <p><strong>Best Days:</strong> {{best_days}}</p>
+  <p><strong>Worst Days:</strong> {{worst_days}}</p>
+  <p><strong>HRT Cycle Correlation:</strong> {{hrt_cycle_correlation}}</p>
+
+  <h3>6.2 Seasonal Effects</h3>
+  <p><strong>Best Season:</strong> {{best_season}}</p>
+  <p><strong>Worst Season:</strong> {{worst_season}}</p>
+  <p>{{seasonal_notes}}</p>
+
+  <h3>6.3 Medication Correlations</h3>
+  <p><strong>Adderall Period:</strong> {{adderall_summary}}</p>
+  <p><strong>Atomoxetine Period:</strong> {{atomoxetine_summary}}</p>
+  <p><strong>Guanfacine Period:</strong> {{guanfacine_summary}}</p>
+
+  <h2 class="page-break">7. Key Findings</h2>
+
+  <h3>Strengths Demonstrated</h3>
+  <ul id="strengths">
+    <!-- TODO: Populate from synthesis -->
+    <li>{{strength}}</li>
+  </ul>
+
+  <h3>Recurring Challenges</h3>
+  <ul id="challenges">
+    <!-- TODO: Populate from synthesis -->
+    <li>{{challenge}}</li>
+  </ul>
+
+  <h3>Growth Areas</h3>
+  <ul id="growth">
+    <!-- TODO: Populate from synthesis -->
+    <li>{{growth_area}}</li>
+  </ul>
+
+  <h2 class="page-break">8. Recommendations for 2026</h2>
+  <p>Based on the analysis of two years of journal data, the following data-driven
+  recommendations are offered for 2026 goal-setting:</p>
+  <ul>
+    <li><!-- TODO: Generate from synthesis --></li>
+  </ul>
+
+  <h2 class="page-break">9. Appendix: Quarterly Summaries</h2>
+  <div id="quarterly-summaries">
+    <!-- TODO: Populate quarterly narratives -->
+  </div>
+
+  <footer style="margin-top: 3em; text-align: center; color: var(--color-muted); font-size: 10pt;">
+    <p>Generated on {{generated_at}}</p>
+  </footer>
+</body>
+</html>
