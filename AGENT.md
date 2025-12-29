@@ -5,17 +5,29 @@
 ---
 
 ## Project Purpose
-[Fill in: What this project does - 1-2 sentences]
+Privacy-centric journal insight extraction and visualization pipeline. Transforms ~650 markdown journal entries (2024-2025) into structured insights, visualizations, and a formal "technical report" to inform 2026 New Year's resolutions.
 
 ## Tech Stack
-[Fill in: Technologies, frameworks, and languages used]
-- Language:
-- Framework:
-- Key Libraries:
-- Package Manager:
+- **Language:** TypeScript
+- **Infrastructure:** Cloudflare Workers, D1, R2, Queues, Durable Objects
+- **LLM:** DeepSeek v3.2 via OpenRouter (Zero Data Retention)
+- **Dashboard:** SvelteKit 5, Tailwind CSS, Chart.js
+- **Package Manager:** pnpm
 
 ## Architecture Notes
-[Fill in: Key architectural decisions, patterns, or structure]
+**Pipeline Phases:**
+1. **Phase 0 (Preprocess):** Local script strips Meta Bind blocks, normalizes links, creates manifest
+2. **Phase 1 (Extraction):** Parallel LLM extraction of structured JSON per entry
+3. **Phase 2 (Aggregation):** Tiered summarization (weekly → monthly → quarterly → synthesis)
+4. **Phase 3 (Visualization):** Export to dashboard JSON, generate PDF report
+
+**Key Resources:**
+- R2 Buckets: `reflections-journals`, `reflections-outputs`
+- D1 Database: `reflections` (extractions, summaries, synthesis)
+- Queues: `extraction-queue`, `aggregation-queue`
+- Durable Object: `ReflectionsCoordinator`
+
+**Privacy Model:** Zero data retention - raw text hits LLM, transforms to structured JSON, then raw text is never stored again
 
 ---
 

@@ -1,0 +1,24 @@
+{
+  "name": "reflections",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Privacy-centric journal insight extraction and visualization pipeline",
+  "scripts": {
+    "preprocess": "tsx scripts/preprocess.ts",
+    "upload": "tsx scripts/upload-to-r2.ts",
+    "export": "tsx scripts/export-data.ts",
+    "dev:infra": "cd infrastructure && wrangler dev",
+    "deploy": "cd infrastructure && bash deploy.sh",
+    "dev:dashboard": "cd dashboard && pnpm dev",
+    "build:dashboard": "cd dashboard && pnpm build"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

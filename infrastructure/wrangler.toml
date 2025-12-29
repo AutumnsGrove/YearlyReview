@@ -1,0 +1,62 @@
+name = "reflections"
+main = "src/index.ts"
+compatibility_date = "2024-12-01"
+
+# Account settings (set via environment or wrangler login)
+# account_id = ""
+
+# R2 Buckets
+[[r2_buckets]]
+binding = "JOURNALS_BUCKET"
+bucket_name = "reflections-journals"
+
+[[r2_buckets]]
+binding = "OUTPUTS_BUCKET"
+bucket_name = "reflections-outputs"
+
+# D1 Database
+[[d1_databases]]
+binding = "DB"
+database_name = "reflections"
+database_id = ""  # Set after creation
+
+# KV Namespace for caching
+[[kv_namespaces]]
+binding = "CACHE"
+id = ""  # Set after creation
+
+# Queues
+[[queues.producers]]
+queue = "extraction-queue"
+binding = "EXTRACTION_QUEUE"
+
+[[queues.producers]]
+queue = "aggregation-queue"
+binding = "AGGREGATION_QUEUE"
+
+[[queues.consumers]]
+queue = "extraction-queue"
+max_batch_size = 5
+max_batch_timeout = 30
+max_retries = 3
+dead_letter_queue = "extraction-dlq"
+
+[[queues.consumers]]
+queue = "aggregation-queue"
+max_batch_size = 1
+max_retries = 3
+dead_letter_queue = "aggregation-dlq"
+
+# Durable Objects
+[durable_objects]
+bindings = [
+  { name = "COORDINATOR", class_name = "ReflectionsCoordinator" }
+]
+
+[[migrations]]
+tag = "v1"
+new_classes = ["ReflectionsCoordinator"]
+
+# Environment variables (secrets set via wrangler secret)
+[vars]
+ENVIRONMENT = "production"

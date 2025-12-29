@@ -1,4 +1,29 @@
+# Secrets
 secrets.json
+
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build outputs
+dist/
+.svelte-kit/
+build/
+
+# Cloudflare
+.wrangler/
+.dev.vars
+
+# Logs
 *.log
-__pycache__/
+
+# OS
 .DS_Store
+__pycache__/
+
+# IDE
+.idea/
+.vscode/
+
+# Reports output
+reports/output/
