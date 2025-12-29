@@ -55,13 +55,24 @@ interface PreprocessConfig {
 // ============================================================================
 
 /**
- * Strip Meta Bind button blocks from content
- * Matches: ```meta-bind-button ... ```
+ * Strip Obsidian plugin blocks from content
+ * Matches: ```meta-bind-button ... ```, ```dataviewjs ... ```, ```dataview ... ```
  */
-function stripMetaBindBlocks(content: string): string {
-  // Match fenced code blocks with meta-bind-button
-  const metaBindPattern = /```meta-bind-button[\s\S]*?```/g;
-  return content.replace(metaBindPattern, '').trim();
+function stripObsidianBlocks(content: string): string {
+  // Match fenced code blocks with Obsidian plugin syntax
+  const patterns = [
+    /```meta-bind-button[\s\S]*?```/g,
+    /```meta-bind[\s\S]*?```/g,
+    /```dataviewjs[\s\S]*?```/g,
+    /```dataview[\s\S]*?```/g,
+  ];
+
+  let cleaned = content;
+  for (const pattern of patterns) {
+    cleaned = cleaned.replace(pattern, '');
+  }
+
+  return cleaned.trim();
 }
 
 /**
@@ -236,7 +247,7 @@ function processEntry(filePath: string, baseDir: string): ProcessedEntry | null 
   }
 
   // Clean content
-  let cleanedContent = stripMetaBindBlocks(rawContent);
+  let cleanedContent = stripObsidianBlocks(rawContent);
   cleanedContent = normalizeWikiLinks(cleanedContent);
 
   // Calculate metrics
